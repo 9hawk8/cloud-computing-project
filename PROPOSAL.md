@@ -38,7 +38,7 @@ A second one hosts a database to write logs with the needed data into.
 A third one should host a webpage the user can access
 with some nicely formatted and user-readable live-infos
 and also some usage-statistics for the last month for example
-(mean pellet usage per day, overall pellet usage).
+(mean pellet usage per day, overal pellet usage).
 
 ### Planning
 #### Milestones
