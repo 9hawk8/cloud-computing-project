@@ -25,28 +25,29 @@ This requires physical access to the heating-unit.
 The user should get an easier way to those statistics.
 To achieve this, a Docker-Microservice-Architecture should replace the need
 to physically go to the heating-unit. The main goal is
-to automatically retrieve the infos via the built-in Webserver,
-log it into a database and show the user the info nicely formatted
-on a webpage accessible on every device in the network.
+to automatically retrieve the infos via the built-in Webserver
+with help of a log-aggregation-tool and transfer them to a monitoring-tool
+to show some nice graphs.
 
 #### Details for Implementation
 One Docker Container should contain a way to retrieve the needed infos
-from the heating-unit.
+from the heating-unit. This could be done by setting up a fluentd instance.
+With help of fluentd the heating-units built-in webserver can be contacted
+at certain intervals to retrieve the statistics.
 
-A second one hosts a database to write logs with the needed data into.
-
-A third one should host a webpage the user can access
-with some nicely formatted and user-readable live-infos
-and also some usage-statistics for the last month for example
-(mean pellet usage per day, overall pellet usage).
+A second one could host a Grafana Loki instance, which can be accessed
+by the user with some nicely formatted graphs for live-infos
+and also some usage-statistics for the last month for example.
 
 ### Planning
 #### Milestones
-Milestone 1: Retrieving infos from the heating-unit is working
+Milestone 1: set up fluentd in Docker-Container
 
-Milestone 2: Logging infos in database is working
+Milestone 2: Retrieving infos from the heating-unit via fluentd is working
 
-Milestone 3: Displaying live-data via webpage is working
+Milestone 3: set up Grafana Loki in Docker-Container
 
-Milestone 4: Displaying usage-statistics over time-period is working
+Milestone 4: Transferring logs from fluentd to Grafana Loki is working
+
+Milestone 5: Displaying usage-statistics and data with Grafana is working
 
